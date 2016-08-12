@@ -2,7 +2,7 @@ const request = require('../requestLessons');
 const cheerio = require('cheerio');
 const assert = require('assert');
 
-describe('request', () => {
+describe('requestLessons', () => {
   it('should get dotinstall lessons html', (done) => {
     request(function (body) {
       const $ = cheerio.load(body);
