@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ja" class=" ">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<meta charset="UTF-8">
+<title>HTML入門 (全24回) - プログラミングならドットインストール</title>
+<meta name="description" content="ホームページやウェブサービスの画面を作る際に必要な、構造的な文書を書く方法について学びます。">
+<meta name="author" content="dotinstall">
+<meta name="copyright" content="Copyright (C) dotinstall.com">
+
+<!--
+
+[エンジニア、プログラマのあるある話]
+
+"topですべての問題が把握できると思っていた時期がある"
+
+投稿は Twitter / @dotinstall までお寄せください。
+
+-->
+
+<link rel="canonical" href="http://dotinstall.com/lessons/basic_html_v3">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="index" href="/">
+<link rel="stylesheet" href="/css/cf.css?v=20160627">
+<link rel="alternate" type="application/rss+xml" title="新着レッスンRSS" href="/lessons.rss">
+<link rel="alternate" type="application/rss+xml" title="新着補足情報RSS" href="/lessons/knowledge.rss">
+<script src="/js/jquery-1.10.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/js/html5shiv.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="/css/jquery.lightbox-0.5.css">
+<link rel="stylesheet" href="/css/jquery.circliful.css">
+<link rel="stylesheet" href="/css/bootstrap_328.css?v=20130813">
+<link rel="stylesheet" href="/css/font-awesome-4.6.3/css/font-awesome.min.css">
+<link href="/css/highlight/github-gist.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/dotinstall.css?v=20160804">
+
+
+<script src="/js/ga.js?v=20140507"></script>
+<script src="/js/bootstrap_328.min.js"></script>
+<script src="/js/underscore.js"></script>
+<script src="/js/main.js?v=20160619"></script>
+<script src="/js/bundle.min.js?v=20160411"></script>
+<script src="/js/dotinstall.bundle.min.js?v=20160616a"></script>
+
+<!-- Open Graph -->
+<meta property="og:title" content="HTML入門 (全24回)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://dotinstall.com/lessons/basic_html_v3">
+<meta property="og:site_name" content="ドットインストール">
+<meta property="og:description" content="ホームページやウェブサービスの画面を作る際に必要な、構造的な文書を書く方法について学びます。">
+<meta property="og:image" content="http://dotinstall.com/package_img/basic_html_v3/screen_1.png">
+<meta property="og:locale" content="ja_JP">
+<meta property="fb:admins" content="569511872">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@dotinstall">
+<meta name="twitter:site" content="@dotinstall">
+<meta name="twitter:title" content="HTML入門 (全24回)">
+<meta name="twitter:description" content="ホームページやウェブサービスの画面を作る際に必要な、構造的な文書を書く方法について学びます。">
+<meta name="twitter:image" content="http://dotinstall.com/package_img/basic_html_v3/screen_1.png">
+
+</head>
+
+<body>
+
+
+<div id="fb-root" style="display:none;"></div>
+
+<div class="navbar navbar-fixed-top" id="lesson_package_page">
+<div class="navbar-inner">
+<div class="container  ">
+<h1 class="logo">
+<a href="/"><span>ドットインストール - 3分動画でマスターする初心者向けプログラミング学習サイト</span></a>
+</h1>
+<ul class="nav" id="global_menu" style="position:relative;font-size:12px;">
+<li class=" disappear"><a href="/home">マイページ</a></li>
+<li class="active movable" data-menu-index="1"><a href="/lessons">レッスン一覧</a></li>
+<li class=" movable" data-menu-index="2"><a href="/premium"><span style="font-weight:bold;color:#f39800;">プレミアム会員</span></a></li>
+<li class=" movable" data-menu-index="3"><a href="/business">法人でのご利用</a></li>
+<li>
+<form action="/search" id="topbar_search" class="form pull-left enable-incremental-lesson-search" onsubmit="if ($(this).find('.q').val() === '') { return false; }">
+<div class="input-append" style="padding:12px 0 0 0;">
+<div class="btn-group">
+<input type="text" style="font-size:12px;" placeholder="レッスン検索" name="q" class="q" id="q_in_topbar" value="" autocomplete="off">
+<input type="hidden" name="f" value="topbar">
+<button type="submit" class="btn"><i class="icon-search"></i></button>
+</div>
+</div>
+<div id="incremental"></div>
+</form>
+</li>
+</ul>
+
+<ul class="nav pull-right topbar-right-nav">
+
+<li class="dropdown">
+<b class="caret"></b>
+<a href="#" class="dropdown-toggle text-ellipsis" data-toggle="dropdown">
+<img src="/img/bug.gif" class="topBarIcon">
+<span>shgtkshruch</span>
+</a>
+
+<ul id="global_dropdown_menu" class="dropdown-menu">
+<li><a href="/home">マイページ</a></li>
+<li class="divider show-narrowed"></li>
+<li><a href="/users/shgtkshruch" id="dropdown_user_profile">プロフィール</a></li>
+<li><a href="https://dotinstall.com/user/settings">設定変更</a></li>
+
+
+<li><a href="/help">ヘルプ</a></li>
+<li class="divider"></li>
+<li><a href="#" onclick="$('#logout-form').submit();">ログアウト</a><form id="logout-form" action="https://dotinstall.com/logout.php" method="post" style="display:none;"><input type="hidden" class="one_time_token" name="one_time_token" value="7b26d2581d7b70c00e31cf8e4cfd6985"></form></li>
+</ul><!-- /dropdown-menu -->
+
+</li>
+
+</ul><!-- /nav pull-right -->
+
+</div><!--/container -->
+</div><!-- /navbar-inner -->
+</div><!-- /navbar -->
+
+<div class="container mt60">
+
+<div class="row">
+
+<div class="span11" id="main">
+
+<ul class="breadcrumb">
+<li><a href="/">トップ</a> <span class="divider">/</span></li>
+<li><a href="/home">マイページ</a> <span class="divider">/</span></li>
+<li><a href="/lessons">レッスン一覧</a> <span class="divider">/</span></li>
+<li class="active lp-bc-pn text-ellipsis">HTML入門</li>
+</ul>
+
+<h1 class="s18b page-header posr" style="margin-bottom:7px;">
+<span >HTML入門</span>
+<span class="s12">(全24回)</span>
+</h1>
+
+
+
+<p>ホームページやウェブサービスの画面を作る際に必要な、構造的な文書を書く方法について学びます。</p>
+<p class="package-versions-info ">
+<i class="fa fa-info-circle c08c"></i> このレッスンでは
+
+<b>HTML5</b>
+を使用しています。
+</p>
+
+<div id="gallery" class="clearfix">
+<div class="ssIcon pic"><a href="/package_img/basic_html_v3/screen_1.png"><img src="/package_img/basic_html_v3/screen_1.png" width="320" height="180" alt=""></a></div>
+<div class="ssIcon pic"><a href="/package_img/basic_html_v3/screen_2.png"><img src="/package_img/basic_html_v3/screen_2.png" width="320" height="180" alt=""></a></div>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#lessons" data-toggle="tab" onclick="ga('send', 'event', 'Tabs', 'Click', 'lesson/package/list');">動画レッスン一覧 <span class="s10">(24)</span></a></li>
+      <li id="comment_tab"><a href="#comments" data-toggle="tab" onclick="ga('send', 'event', 'Tabs', 'Click', 'lesson/package/comments');">補足情報一覧 <span class="s10">(5)</span></a></li>
+    </ul>
+
+<div class="tab-content" style="min-height:400px">
+
+<div id="lessons" class="tab-pane active">
+
+<ul id="lessons_list">
+
+<li id="lesson_row_31601" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31601" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31601" class="lesson_title">#01 HTMLとはなにか？</a>
+<span class="s11 caaa">(02:56)</span>
+<ul class="lesson-summaries">
+<li>概要</li>
+<li>レッスンがカバーする範囲</li>
+<li>仕様の確認方法</li>
+<li>caniuse.com</li>
+</ul>
+</li>
+<li id="lesson_row_31602" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31602" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31602" class="lesson_title">#02 必要なツールを用意しよう</a>
+<span class="s11 caaa">(02:55)</span>
+<ul class="lesson-summaries">
+<li>Chrome</li>
+<li>Atom</li>
+<li>Ricty Diminished</li>
+<li>エディタの設定</li>
+</ul>
+</li>
+<li id="lesson_row_31603" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31603" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31603" class="lesson_title">#03 タグと属性を理解しよう</a>
+<span class="s11 caaa">(02:20)</span>
+<ul class="lesson-summaries">
+<li>タグ</li>
+<li>属性</li>
+</ul>
+</li>
+<li id="lesson_row_31604" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31604" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31604" class="lesson_title">#04 はじめてのHTML</a>
+<span class="s11 caaa">(02:07)</span>
+<ul class="lesson-summaries">
+<li>HTML</li>
+<li>index.htmlの作成</li>
+<li>ブラウザでの表示</li>
+</ul>
+</li>
+<li id="lesson_row_31605" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31605" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31605" class="lesson_title">#05 meta､linkタグを使ってみよう</a>
+<span class="s11 caaa">(02:53)</span>
+<ul class="lesson-summaries">
+<li>meta</li>
+<li>文字化け対策</li>
+<li>link</li>
+<li>favicon</li>
+</ul>
+</li>
+<li id="lesson_row_31606" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31606" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31606" class="lesson_title">#06 styleタグを使ってみよう</a>
+<span class="s11 caaa">(02:33)</span>
+<ul class="lesson-summaries">
+<li>style</li>
+<li>CSSファイル</li>
+<li>コメント</li>
+</ul>
+</li>
+<li id="lesson_row_31607" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31607" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31607" class="lesson_title">#07 id､class､style属性を使ってみよう</a>
+<span class="s11 caaa">(02:28)</span>
+<ul class="lesson-summaries">
+<li>id</li>
+<li>class</li>
+<li>style</li>
+</ul>
+</li>
+<li id="lesson_row_31608" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31608" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31608" class="lesson_title">#08 セクションについて理解しよう</a>
+<span class="s11 caaa">(02:35)</span>
+<ul class="lesson-summaries">
+<li>header</li>
+<li>footer</li>
+<li>nav</li>
+<li>article</li>
+<li>aside</li>
+<li>section</li>
+<li>h1-h6</li>
+</ul>
+</li>
+<li id="lesson_row_31609" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31609" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31609" class="lesson_title">#09 アウトラインを意識してみよう</a>
+<span class="s11 caaa">(02:43)</span>
+<ul class="lesson-summaries">
+<li>セクションのマークアップ</li>
+</ul>
+</li>
+<li id="lesson_row_31610" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31610" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31610" class="lesson_title">#10 h1-h6タグで見出しを付けよう</a>
+<span class="s11 caaa">(02:28)</span>
+<ul class="lesson-summaries">
+<li>見出し</li>
+</ul>
+</li>
+<li id="lesson_row_31611" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31611" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31611" class="lesson_title">#11 p､hr､pre､blockquote､divを使おう</a>
+<span class="s11 caaa">(02:52)</span>
+<ul class="lesson-summaries">
+<li>p</li>
+<li>hr</li>
+<li>pre</li>
+<li>blockquote</li>
+<li>div</li>
+</ul>
+</li>
+<li id="lesson_row_31612" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31612" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31612" class="lesson_title">#12 ol､ul､li､dl､dt､ddでリストを作ろう</a>
+<span class="s11 caaa">(02:48)</span>
+<ul class="lesson-summaries">
+<li>ol / ul / li</li>
+<li>dl / dt / dd</li>
+</ul>
+</li>
+<li id="lesson_row_31613" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31613" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31613" class="lesson_title">#13 strong､br､spanを使ってみよう</a>
+<span class="s11 caaa">(01:45)</span>
+<ul class="lesson-summaries">
+<li>strong</li>
+<li>br</li>
+<li>span</li>
+</ul>
+</li>
+<li id="lesson_row_31614" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31614" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31614" class="lesson_title">#14 aタグでリンクを設定しよう</a>
+<span class="s11 caaa">(02:37)</span>
+<ul class="lesson-summaries">
+<li>別サイトへのリンク</li>
+<li>別ファイルへのリンク</li>
+<li>ページ内リンク</li>
+</ul>
+</li>
+<li id="lesson_row_31615" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31615" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31615" class="lesson_title">#15 imgタグで画像を表示させよう</a>
+<span class="s11 caaa">(01:27)</span>
+<ul class="lesson-summaries">
+<li>img</li>
+<li>width / height</li>
+<li>alt</li>
+</ul>
+</li>
+<li id="lesson_row_31616" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31616" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31616" class="lesson_title">#16 tableタグで表組みを作ろう</a>
+<span class="s11 caaa">(02:57)</span>
+<ul class="lesson-summaries">
+<li>table</li>
+<li>thead</li>
+<li>tbody</li>
+<li>tr</li>
+<li>th</li>
+<li>td</li>
+</ul>
+</li>
+<li id="lesson_row_31617" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31617" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31617" class="lesson_title">#17 formタグでフォームを作ろう</a>
+<span class="s11 caaa">(03:00)</span>
+<ul class="lesson-summaries">
+<li>form</li>
+<li>input</li>
+</ul>
+</li>
+<li id="lesson_row_31618" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31618" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31618" class="lesson_title">#18 inputタグで入力部品を作ろう</a>
+<span class="s11 caaa">(02:53)</span>
+<ul class="lesson-summaries">
+<li>size</li>
+<li>maxlength</li>
+<li>value</li>
+<li>placeholder</li>
+<li>password</li>
+<li>hidden</li>
+</ul>
+</li>
+<li id="lesson_row_31619" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31619" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31619" class="lesson_title">#19 textarea､buttonタグを使ってみよう</a>
+<span class="s11 caaa">(02:44)</span>
+<ul class="lesson-summaries">
+<li>textarea</li>
+<li>button</li>
+<li>disabled</li>
+</ul>
+</li>
+<li id="lesson_row_31620" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31620" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31620" class="lesson_title">#20 checkbox､radio､labelを使ってみよう</a>
+<span class="s11 caaa">(02:57)</span>
+<ul class="lesson-summaries">
+<li>checkbox</li>
+<li>radio</li>
+<li>label</li>
+</ul>
+</li>
+<li id="lesson_row_31621" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31621" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31621" class="lesson_title">#21 selectタグでセレクトボックスを作ろう</a>
+<span class="s11 caaa">(02:41)</span>
+<ul class="lesson-summaries">
+<li>select</li>
+<li>option</li>
+<li>selected</li>
+<li>multiple</li>
+</ul>
+</li>
+<li id="lesson_row_31622" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31622" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31622" class="lesson_title">#22 HTML5から使える属性を使ってみよう</a>
+<span class="s11 caaa">(02:31)</span>
+<ul class="lesson-summaries">
+<li>email</li>
+<li>number</li>
+<li>date</li>
+<li>required</li>
+<li>novalidate</li>
+</ul>
+</li>
+<li id="lesson_row_31623" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31623" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31623" class="lesson_title">#23 文字参照を使ってみよう</a>
+<span class="s11 caaa">(02:30)</span>
+<ul class="lesson-summaries">
+<li>文字参照</li>
+</ul>
+</li>
+<li id="lesson_row_31624" style="overflow:hidden;">
+<div class="flr" style="text-align:center;">
+<button class="btn txc btn-small lesson_complete_button " data-lesson_id="31624" style="display:none;line-height:24px;">
+<span class="iconDotinstall">未完了</span>
+</button>
+</div>
+<i class="fa fa-play-circle "></i>
+<a href="/lessons/basic_html_v3/31624" class="lesson_title">#24 コンテンツモデルを理解しよう</a>
+<span class="s11 caaa">(02:54)</span>
+<ul class="lesson-summaries">
+<li>カテゴリー</li>
+<li>コンテンツモデル</li>
+<li>トランスペアレント</li>
+</ul>
+</li>
+
+</ul><!-- /lessons_list -->
+
+</div><!-- /lessons -->
+
+<div class="tab-pane" id="comments">
+
+<h5 class="s13">
+<a href="/lessons/basic_html_v3/31602">#02 必要なツールを用意しよう</a>
+</h5>
+<div class="commentBox round">
+<div class="comment-created-at flr s12 caaa">
+<span title="2016-07-11 17:32:52">
+2016年7月11日
+</span>
+</div>
+<h3 class="comment-header s13b page-header">
+<span class="comment-label label label-info">補足情報</span>
+Ricty Diminished のインストールについて
+</h3>
+<div class="comment-body breakWord">
+ユーザの方よりご指摘いただきましたが、Ricty Diminished のダウンロードページは以下に移転したようです。 tar.gz ファイルを解凍してインストールをしてください。<br />
+<br />
+・プログラミング用フォント Ricty Diminished<br />
+<a href="http://www.rs.tus.ac.jp/yyusa/ricty_diminished.html" target="_blank">http://www.rs.tus.ac.jp/yyusa/ricty_diminished.html</a><br />
+<br />
+なお、Windows OS をご利用の方は「Lhaplus」などのファイル解凍ソフトをお使いください。
+</div>
+</div>
+<div class="commentBox round">
+<div class="comment-created-at flr s12 caaa">
+<span title="2016-02-19 18:45:17">
+2016年2月19日
+</span>
+</div>
+<h3 class="comment-header s13b page-header">
+<span class="comment-label label label-info">補足情報</span>
+フォント導入時のAtom再起動について（Windows）
+</h3>
+<div class="comment-body breakWord">
+Ricty Diminishedですが、設定後にAtomの再起動が必要となる場合がございます。すぐに反映されなかった方はそちらもお試しください。
+</div>
+</div>
+<div class="commentBox round">
+<div class="comment-created-at flr s12 caaa">
+<span title="2016-01-13 10:43:47">
+2016年1月13日
+</span>
+</div>
+<h3 class="comment-header s13b page-header">
+<span class="comment-label label label-info">補足情報</span>
+AtomのJapanese wrapパッケージについて
+</h3>
+<div class="comment-body breakWord">
+Atomに日本語の折り返し機能が追加されたため、動画内2:18より紹介している『Japanese wrap』というパッケージのインストールの必要はなくなりました（ユーザーの方よりご指摘いただきました。ありがとうございます！）。
+</div>
+</div>
+<div class="commentBox round">
+<div class="comment-created-at flr s12 caaa">
+<span title="2015-05-02 16:05:13">
+2015年5月2日
+</span>
+</div>
+<h3 class="comment-header s13b page-header">
+<span class="comment-label label label-info">補足情報</span>
+Atomの使い方について
+</h3>
+<div class="comment-body breakWord">
+今回紹介しているAtomですが、以下のレッスンで使い方を説明しています。こちらもあわせて参考にしてみてください。<br />
+<br />
+・Atom入門 (全13回) <br />
+<a href="http://dotinstall.com/lessons/basic_atom" target="_blank">http://dotinstall.com/lessons/basic_atom</a>
+</div>
+</div>
+<div class="commentBox round">
+<div class="comment-created-at flr s12 caaa">
+<span title="2015-04-27 14:21:10">
+2015年4月27日
+</span>
+</div>
+<h3 class="comment-header s13b page-header">
+<span class="comment-label label label-info">補足情報</span>
+フォント名の綴り間違いについて
+</h3>
+<div class="comment-body breakWord">
+動画内で紹介されているフォント名ですが、綴りを間違えていました・・・（ユーザーの方よりご指摘いただきました。ありがとうございます！）。<br />
+「Ricty Dinimished」ではなくて、正しくは「Ricty Diminished」なので、そちらで検索してみてください（nとmが入れ替わっていました）。
+</div>
+</div>
+
+</div><!-- /comments -->
+
+
+</div><!-- /tab-content -->
+
+</div><!-- /main -->
+
+<div class="span5" id="sidebar">
+
+
+
+
+<div class="sbox">
+<h2>あなたの学習状況</h2>
+<div class="sboxInner">
+<div class="clearfix">
+<div style="float:left;width:90px;">
+    <div id="myStat" data-dimension="80" data-text="" data-width="12" data-percent="" data-fgcolor="#5eb95e"></div>
+</div>
+<div style="float:right;width:160px;" class="s12">
+
+<dl class="packageInfo">
+<dt>完了レッスン数</dt><dd><span id="completed_lesson_count" class="s12b">0</span> / 24 回</dd>
+<dt>完了率</dt><dd><strong><span id="complete_average">0</span></strong> %</dd>
+<dt>あなたの閲覧数</dt><dd><strong><span id="history_count">0</span></strong> 回</dd>
+<dt>最終閲覧日</dt><dd><strong>103</strong> 日前</dd>
+</dl>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="sbox" id="side_all_summary">
+<h2>全ユーザーの学習状況</h2>
+<div class="sboxInner">
+<ul class="userIcons" id="completed_users" style="height:150px">
+</ul>
+
+</div><!-- /sboxInner -->
+
+<div class="clearfix userStats">
+<div class="userStatsBox" style="width:80px">
+<div>完了済</div>
+<div class="userStatsBoxNum">10,314</div>
+</div>
+<div class="userStatsBox" style="width:80px">
+<div>学習中</div>
+<div class="userStatsBoxNum">25,478</div>
+</div>
+<div class="userStatsBox" style="width:100px">
+<div>閲覧数</div>
+<div class="userStatsBoxNum">2,415,760</div>
+</div>
+</div>
+
+</div><!-- /sbox -->
+
+<div class="sbox">
+<h2>関連のあるキーワード <span class="s10">(4)</span></h2>
+<div class="sboxInner">
+<span class="tags"><a href="/lessons/search#!/filter/%E5%9F%BA%E7%A4%8E%E8%AC%9B%E5%BA%A7">基礎講座 <span class="s10">(161)</span></a></span>
+<span class="tags"><a href="/lessons/search#!/filter/%E5%88%9D%E5%BF%83%E8%80%85%E5%90%91%E3%81%91">初心者向け <span class="s10">(184)</span></a></span>
+<span class="tags"><a href="/lessons/search#!/filter/HTML">HTML <span class="s10">(24)</span></a></span>
+<span class="tags"><a href="/lessons/search#!/filter/%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C">ウェブサイト制作 <span class="s10">(5)</span></a></span>
+</div>
+</div>
+
+
+<div class="sbox">
+<h2>動画中で使用されている技術</h2>
+<div class="sboxInner">
+<span class="tech_tags">HTML5</span>
+</div>
+</div>
+
+<div class="sbox">
+<h2>このレッスンの最終更新日</h2>
+<div class="sboxInner">
+<span class="s12" style="color:#ce4834;font-weight:bold">
+  2015年3月5日
+</span>
+<span class="s10">(526日前)</span>
+</div>
+</div>
+
+<div class="sbox">
+<h2>このレッスンを共有する</h2>
+<div class="sboxInner">
+<ul class="unstyled" id="shareButtons">
+<li><a href="http://b.hatena.ne.jp/entry/http://dotinstall.com/lessons/basic_html_v3" class="hatena-bookmark-button" data-hatena-bookmark-title="HTML入門 (全24回) - プログラミングならドットインストール" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="/img/hatena-button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a></li>
+<li><a href="http://twitter.com/share" class="twitter-share-button" data-text="HTML入門 (全24回) - プログラミングならドットインストール #dotinstall" data-count="horizontal" data-lang="en"></a></li>
+<li><div class="fb-like" data-href="http://dotinstall.com/lessons/basic_html_v3" data-send="false" data-layout="button_count" data-width="160" data-show-faces="false"></div></li>
+</ul>
+</div>
+</div>
+
+</div><!-- /sidebar -->
+
+</div><!-- /row -->
+
+<input type="hidden" id="user_id" value="9468">
+<input type="hidden" id="package_id" value="316">
+<input type="hidden" id="open_lesson_history" value="1">
+
+</div><!-- /container -->
+
+<p id="back-top" style="display:none;"><a href="#top"><span></span></a></p>
+
+
+<div id="footer">
+<div class="container ">
+<div class="row">
+<div class="span4" id="footer_logo">
+<div class="txc">
+<img src="/img/footer_logo.png" width="190" height="190" alt=".install">
+</div>
+</div><!-- /span4 -->
+<div class="span4" id="footer_about">
+<h3>「ドットインストール」とは？</h3>
+<div style="padding:0 10px 0 20px">
+<p class="s12">3分動画でマスターできる、初心者向けプログラミング学習サイトです。</p>
+<p class="s12">あなたもプログラミングを始めてみませんか？</p>
+</div>
+</div><!-- /span4 -->
+<div class="span4">
+<h3>サービスメニュー</h3>
+<ul>
+<li><a href="/lessons">レッスン一覧</a></li>
+<li><a href="/premium">プレミアム会員</a></li>
+<li><a href="/business">法人向けライセンス</a></li>
+<li><a href="/news">運営からのお知らせ</a></li>
+<li><a href="/guide">プログラミング学習ガイド</a></li>
+<li><a href="/help">ヘルプ</a></li>
+</ul>
+<h3>ご利用にあたって</h3>
+<ul>
+<li><a href="/about">このサイトについて</a></li>
+<li><a href="/terms">利用規約</a></li>
+<li><a href="/privacy">プライバシーポリシー</a></li>
+<li><a href="http://company.dotinstall.com" target="_blank">運営企業情報</a></li>
+<li><a href="http://company.dotinstall.com/news/20150702.html" target="_blank">動画広告について</a></li>
+<li><a href="/contact">お問い合わせ</a></li>
+</ul>
+</div><!-- /span4 -->
+<div class="span4">
+<h3>学習支援ツール</h3>
+<ul>
+<li><a href="http://blog.dotinstall.com/post/139045656660/dotinstallpane" target="_blank">Dotinstall Pane</a></li>
+</ul>
+<h3>ソーシャルメディア</h3>
+<ul>
+<li><a href="http://facebook.com/dotinstall">Facebookページ</a></li>
+<li><a href="http://twitter.com/dotinstall">Twitter (@dotinstall)</a></li>
+<li><a href="http://blog.dotinstall.com/">公式ブログ</a></li>
+</ul>
+<h3>更新情報</h3>
+<ul class="rss">
+<li><a href="/lessons.rss">新着レッスンRSS</a></li>
+<li><a href="/lessons/knowledge.rss">新着補足情報RSS</a></li>
+</ul>
+</div><!-- /span4 -->
+</div><!-- /row -->
+
+<p class="copyright">
+    Copyright &copy; 2011-2016 dotinstall.com. All Rights Reserved.
+</p>
+
+
+</div><!-- /container -->
+</div><!-- /footer -->
+
+<script src="/js/packages_for_search.js?v=2451648"></script>
+
+
+<!-- User Insight PCDF Code Start : dotinstall.com -->
+<script type="text/javascript">
+<!--
+var _uic = _uic ||{}; var _uih = _uih ||{};_uih['id'] = 50397;
+_uih['lg_id'] = '91eacc8bf47017961345f6c51f9e156681545132';
+_uih['fb_id'] = '';
+_uih['tw_id'] = '';
+_uih['uigr_1'] = ''; _uih['uigr_2'] = ''; _uih['uigr_3'] = ''; _uih['uigr_4'] = ''; _uih['uigr_5'] = '';
+_uih['uigr_6'] = ''; _uih['uigr_7'] = ''; _uih['uigr_8'] = ''; _uih['uigr_9'] = ''; _uih['uigr_10'] = '';
+/* DO NOT ALTER BELOW THIS LINE */
+/* WITH FIRST PARTY COOKIE */
+(function() {
+var bi = document.createElement('scri'+'pt');bi.type = 'text/javascript'; bi.async = true;
+bi.src = ('https:' == document.location.protocol ? 'https://bs' : 'http://c') + '.nakanohito.jp/b3/bi.js';
+var s = document.getElementsByTagName('scri'+'pt')[0];s.parentNode.insertBefore(bi, s);
+})();
+//-->
+</script>
+<!-- User Insight PCDF Code End : dotinstall.com -->
+<script src="/js/jquery.circliful.min.js"></script>
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/jquery.lightbox-0.5.pack.js"></script>
+
+<script>
+
+$(function() {
+    if ($('#myStat').circliful) {
+        $('#myStat').circliful();
+    }
+
+    if ($('#user_id').val() !== '') {
+        HMHM.lesson.getPackageProgress(
+            'basic_html_v3',
+            {
+                completed: function(lesson) {
+                    $('#lesson_row_' + lesson.id)
+                        .find('a')
+                            .addClass('done')
+                        .end()
+                        .find('button')
+                            .fadeIn()
+                            .find('span')
+                                .addClass('op5')
+                                .text('完了済');
+                },
+                notCompleted: function(lesson) {
+                    $('#lesson_row_' + lesson.id)
+                        .find('button')
+                            .fadeIn();
+                },
+                after: function(res) {
+                    $('#completed_lesson_count').text(res.completed_count);
+                    $('#complete_average').text(res.completed_rate);
+
+                    if ($('#myStat').length) {
+                        $('#myStat')
+                            .empty()
+                            .data('text', res.completed_rate + '%')
+                            .data('percent', res.completed_rate)
+                            .circliful();
+                    }
+                }
+            }
+        );
+
+        HMHM.lesson.getPackageHistoryCount('basic_html_v3');
+    }
+
+    $('#gallery a').lightBox({
+        imageLoading:  '/img/lightbox-ico-loading.gif',
+        imageBtnPrev:  '/img/lightbox-btn-prev.gif',
+        imageBtnNext:  '/img/lightbox-btn-next.gif',
+        imageBtnClose: '/img/lightbox-btn-close.gif',
+        imageBlank:    '/img/lightbox-blank.gif'
+    });
+
+    $.get('/package/completed_users', {
+        ename: 'basic_html_v3'
+    }).done(function(res) {
+        var i
+          , user;
+
+        for (i = 0; i < res.completed_users.length; i++) {
+            user = res.completed_users[i];
+
+            $('<li>').append(
+                $('<a>').append(
+                    $('<img>')
+                        .attr('src', user.profile_image_url)
+                        .addClass('userIcon')
+                        .data('user-name', user.user_name)
+                        .on('error', function() {
+                            HMHM.icon.notFound(this);
+                        })
+                ).attr('href', '/users/' + user.user_name)
+            ).appendTo('#completed_users').hide().fadeIn();
+        }
+    });
+});
+
+
+$(function() {
+    HMHM.wait(2000).done(function() {
+      frameInFrame('/js/async.js?v=20150502');
+    });
+});
+</script>
+</body>
+</html>
