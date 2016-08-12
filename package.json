@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/json --timeout 1000000"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "shgtkshruch <shgtk.shruch@gmail.com>",

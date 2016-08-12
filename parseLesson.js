@@ -1,7 +1,7 @@
 const requestLesosn = require('./requestLesson');
 const cheerio = require('cheerio');
 
-module.exports = function (body, cb) {
+module.exports = (body, cb) => {
   const $ = cheerio.load(body);
   const lesson = [];
   $('#lessons_list > li').each(function (i, elem) {

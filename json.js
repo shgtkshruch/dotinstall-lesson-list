@@ -8,7 +8,7 @@ const parseLesson = require('./parseLesson');
 
 const results = [];
 
-module.exports = (cb) => {
+module.exports = cb => {
   requestLessons(body => {
     parseLessons(body, lessons => {
       each(lessons, (lesson, next) => {
