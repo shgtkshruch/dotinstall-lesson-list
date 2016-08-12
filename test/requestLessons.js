@@ -1,4 +1,4 @@
-const request = require('../request');
+const request = require('../requestLessons');
 const cheerio = require('cheerio');
 const assert = require('assert');
 
