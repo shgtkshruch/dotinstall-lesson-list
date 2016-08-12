@@ -1,4 +1,4 @@
-const dotinstallLessons = require('../dotinstall-lessons.json');
+const dotinstallLessons = require('../dotinstall-lesson-list.json');
 const assert = require('assert');
 
 describe('json', () => {
